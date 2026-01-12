@@ -15,10 +15,10 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 ">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 md:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 font-semibold text-xs">
+      <nav className="mx-auto flex items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="group">
-          <span className="text-xs uppercase">
+          <span className="">
             IBD
           </span>
         </Link>
@@ -28,8 +28,7 @@ export function Header() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="text-xs text-[var(--muted)] transition-colors duration-300 hover:text-[var(--foreground)]"
-              >
+               >
                 {item.label}
               </Link>
             </li>
@@ -41,7 +40,7 @@ export function Header() {
           className="flex items-center justify-center md:hidden"
           aria-label="Toggle menu"
         >
-          <span className="text-xs">
+          <span className="">
             {isMenuOpen ? "Close" : "Menu"}
           </span>
         </button>
@@ -54,9 +53,9 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[72px]  md:hidden"
+            className="fixed inset-0 top-[56px]  md:hidden"
           >
-            <ul className="flex flex-col px-6 py-8">
+            <ul className="flex flex-col px-4 py-6">
               {navItems.map((item, index) => (
                 <motion.li
                   key={item.href}
@@ -78,7 +77,7 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
       </div>
     </header>
   );

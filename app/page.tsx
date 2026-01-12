@@ -5,20 +5,24 @@ import { FadeIn, FadeInStagger, FadeInStaggerItem } from "./components/FadeIn";
 
 const news = [
   {
-    title: "Exhibition at Seoul Museum of Art",
-    description: "Information Landscapes opens at SeMA, exploring urban data through visual narratives.",
+    title:
+      "Dr. Kyung Hoon Hyun has been selected as a member of the Young Korean Academy of Science and Technology (YKAST)",
+    description:
+      "Information Landscapes opens at SeMA, exploring urban data through visual narratives.",
     date: "2024.12.15",
     category: "Exhibition",
   },
   {
     title: "New Research Partnership with KAIST",
-    description: "Collaborative research initiative on computational design methodologies.",
+    description:
+      "Collaborative research initiative on computational design methodologies.",
     date: "2024.11.28",
     category: "Research",
   },
   {
-    title: "Design Award 2024",
-    description: "Seoul Urban Data Archive receives recognition at Korea Design Awards.",
+    title: "Gibbeum Lee selected as a KAIST Jang Young-Sil Postdoctoral Fellow",
+    description:
+      "Seoul Urban Data Archive receives recognition at Korea Design Awards.",
     date: "2024.10.05",
     category: "Award",
   },
@@ -49,86 +53,121 @@ export default function Home() {
 
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
+        <section className="flex flex-col justify-end w-full h-screen mx-auto px-6 py-24 md:px-8 md:py-32">
+          <div className="absolute top-0 right-0 pt-16 px-6">
+            <FadeIn>
+              <div className="font-medium text-[8vw] lg:text-[5vw] leading-none">
+                GSCT KAIST
+              </div>
+            </FadeIn>
+          </div>
           <FadeIn>
-            <h1 className="max-w-4xl text-3xl font-normal leading-tight tracking-tight md:text-4xl lg:text-5xl">
-              We are a research-based design studio focused on the systematic
-              exploration of information, data, and visual communication.
+            <h1 className="text-[17vw] leading-[0.9] tracking-tight md:text-4xl lg:text-[13vw] font-normal">
+              Information
+              <br />
+              <FadeIn delay={0.1} className="hidden sm:block">
+                Based Design{" "}
+              </FadeIn>
+              <FadeIn delay={0.2}>Lab</FadeIn>
             </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--muted)]">
-              Our work investigates how information can be organized, visualized,
-              and understood through design methodology.
-            </p>
           </FadeIn>
         </section>
 
-        {/* Latest News Section */}
-        <section id="news">
-          <div className="mx-auto max-w-6xl px-6 py-24 md:px-8">
-            <div className="grid gap-12 md:grid-cols-12">
-              <FadeIn className="md:col-span-4">
-                <p className="font-mono text-xs tracking-wide uppercase text-[var(--muted)]">
-                  Latest News
-                </p>
-              </FadeIn>
-              <div className="md:col-span-8">
-                <FadeInStagger className="space-y-8">
-                  {news.map((item) => (
-                    <FadeInStaggerItem
-                      key={item.title}
-                      className="group cursor-pointer"
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <span className="font-mono text-xs text-[var(--muted)]">
-                              {item.date}
-                            </span>
-                            <span className="font-mono text-xs text-[var(--muted)]">
-                              {item.category}
-                            </span>
-                          </div>
-                          <h3 className="text-base font-normal group-hover:underline underline-offset-4">
-                            {item.title}
-                          </h3>
-                          <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
+        {/* Intro Section */}
+        <section id="intro" className="h-screen flex justify-center items-end">
+          <div className="px-6 py-24">
+            <div className="grid gap-12 md:grid-cols-3">
+              <div className="md:col-span-1"></div>
+              <div className="md:col-span-2">
+                <FadeInStagger className="grid gap-x-8">
+                  <FadeInStaggerItem>
+                    <div className="font-medium text-[8vw] lg:text-[5vw] leading-none mb-[1em]">
+                      Research Areas
+                    </div>
+                  </FadeInStaggerItem>
+                  <div className="border-l-2 pl-6">
+                    <FadeInStaggerItem>
+                      <h3 className="font-medium text-[8vw] lg:text-[5vw] leading-none">
+                        Computational Design
+                      </h3>
                     </FadeInStaggerItem>
-                  ))}
+                    <FadeInStaggerItem>
+                      <h3 className="font-medium text-[8vw] lg:text-[5vw] leading-none">
+                        AI in Design
+                      </h3>
+                    </FadeInStaggerItem>
+                    <FadeInStaggerItem>
+                      <h3 className="font-medium text-[8vw] lg:text-[5vw] leading-none">
+                        HCI
+                      </h3>
+                    </FadeInStaggerItem>
+                    <FadeInStaggerItem>
+                      <h3 className="font-medium text-[8vw] lg:text-[5vw] leading-none">
+                        Smart Cities
+                      </h3>
+                    </FadeInStaggerItem>
+                  </div>
                 </FadeInStagger>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Latest News Section */}
+        <section id="news" className="h-screen px-6 flex flex-col justify-end">
+          <FadeIn>
+            <div className="font-medium text-[8vw] lg:text-[5vw] leading-none mb-4">
+              Latest News
+            </div>
+          </FadeIn>
+          <FadeInStagger className="flex gap-6">
+            {news.map((item) => (
+              <FadeInStaggerItem
+                key={item.title}
+                className="group cursor-pointer"
+              >
+                <div className="w-[calc(33.3333vw-2rem)] bg-gray-300 p-4 aspect-square">
+                  <h3 className="word-wrap group-hover:underline underline-offset-4 font-semibold text-lg">
+                    {item.title}
+                  </h3>
+                </div>
+              </FadeInStaggerItem>
+            ))}
+          </FadeInStagger>
+        </section>
+
         {/* About Section */}
-        <section id="about">
-          <div className="mx-auto max-w-6xl px-6 py-24 md:px-8">
-            <div className="grid gap-12 md:grid-cols-12">
-              <FadeIn className="md:col-span-4">
-                <p className="font-mono text-xs tracking-wide uppercase text-[var(--muted)]">
-                  About
-                </p>
-              </FadeIn>
-              <div className="md:col-span-8">
+        <section id="about" className="h-screen flex items-center">
+          <div className="px-6">
+            <FadeIn>
+              <div className="font-medium text-[8vw] lg:text-[5vw] leading-none mb-4">
+                The essence of technology is by no means anything technological
+              </div>
+            </FadeIn>
+            <FadeIn>
+              <div className="text-right font-medium text-[8vw] lg:text-[5vw] leading-none mb-[1em]">
+                Martin Heidegger
+              </div>
+            </FadeIn>
+            <div className="grid md:grid-cols-3 font-semibold">
+              <div className="md:col-span-1 text-lg"></div>
+              <div className="md:col-span-2 text-lg">
                 <FadeIn>
-                  <p className="text-lg leading-relaxed">
-                    Information Based Design Lab operates at the intersection of
-                    research and practice. We believe that design is a method of
-                    inquiry, a way of understanding complex systems through
-                    making.
-                  </p>
-                </FadeIn>
-                <FadeIn delay={0.1}>
-                  <p className="mt-6 text-base leading-relaxed text-[var(--muted)]">
-                    Founded in Seoul, our studio brings together designers,
-                    researchers, and technologists who share a commitment to
-                    rigorous, concept-driven work.
+                  <p className="leading-relaxed">
+                    We focus on the Computational Design research field that
+                    aims to explore ways of juxtaposing computational approaches
+                    and applications with professional practice and theory in
+                    design. Therefore, the researchers are investigating to make
+                    the design environment more intelligent and easy to use
+                    through applying computational approaches such as artificial
+                    intelligence (AI) and human-computer interaction (HCI) on
+                    the basis of three related foundation fields: cognitive
+                    science, mathematics, and design theory. These explorations
+                    result in computer-based frameworks or systems contributing
+                    to the enhancement of calculability using algorithmic and/or
+                    heuristic computational methods. In other words, the IBD
+                    research focus is on 'computational culture' as an extension
+                    of computational design.
                   </p>
                 </FadeIn>
               </div>
@@ -221,8 +260,8 @@ export default function Home() {
               <div className="md:col-span-8">
                 <FadeIn>
                   <p className="text-lg leading-relaxed">
-                    We are open to collaborations, research partnerships, and
-                    inquiries.
+                    If you are interested in our lab, please do not hesitate to
+                    contact us.
                   </p>
                 </FadeIn>
                 <FadeIn delay={0.1}>
@@ -230,7 +269,7 @@ export default function Home() {
                     href="mailto:contact@ibdlab.kr"
                     className="mt-6 inline-block text-base underline underline-offset-4 transition-colors hover:text-[var(--muted)]"
                   >
-                    contact@ibdlab.kr
+                    jihyunlee@kaist.ac.kr
                   </a>
                 </FadeIn>
                 <FadeIn delay={0.2}>

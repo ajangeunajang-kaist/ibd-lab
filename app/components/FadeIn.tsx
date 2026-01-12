@@ -16,7 +16,7 @@ export function FadeIn({
   delay = 0,
   direction = "up",
   className = "",
-  once = true,
+  once = false,
 }: FadeInProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-100px" });
@@ -65,8 +65,8 @@ export function FadeInStagger({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ staggerChildren: 0.1 }}
+      viewport={{ once: false, margin: "-100px" }}
+      transition={{ staggerChildren: 0.25 }}
       className={className}
     >
       {children}
@@ -89,7 +89,7 @@ export function FadeInStaggerItem({
           opacity: 1,
           y: 0,
           transition: {
-            duration: 0.6,
+            duration: 1.0,
             ease: [0.21, 0.47, 0.32, 0.98],
           },
         },
